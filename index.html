@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Explore</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @stack('css')
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w-full">
+        <div class="min-h-screen bg-slate-300 flex flex-col" x-data={menu:false}>
+            {{-- header --}}
+            <div class="flex justify-between items-center h-14 bg-slate-200 p-4">
+                <div class="inline-flex justify-center items-center ">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-tabler" width="40"
+                        height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M8 9l3 3l-3 3" />
+                        <line x1="13" y1="15" x2="16" y2="15" />
+                        <rect x="4" y="4" width="16" height="16" rx="4" />
+                    </svg>
+                </div>
+
+                <div class="cursor-pointer">
+                    <div class="inline-flex item-center gap-4">
+                        <div class="lg:hidden" x-on:click="menu = ! menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2"
+                                width="38" height="38" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <line x1="4" y1="6" x2="20" y2="6" />
+                                <line x1="4" y1="12" x2="20" y2="12" />
+                                <line x1="4" y1="18" x2="20" y2="18" />
+                            </svg>
+                        </div>
+                        <div class="inline-flex item-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings"
+                                width="38" height="38" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- end header --}}
+
+            {{-- konten --}}
+
+            <div class="flex lg:flex-row" :class="menu?'flex-col' : ''">
+                <div class=" flex-none lg:static text-gray-600 lg:w-1/5 w-full lg:visible max-h-screen overflow-y-auto
+                " :class=" menu ? 'visible backdrop-blur ' : 'invisible absolute'">
+                    <div class=" lg:w-full w-3/4 bg-slate-600">
+                        <div class="gap-2 min-h-screen  bg-slate-100">
+                            <div class="px-2 py-2 gap-2">
+                                <div class="relative flex py-2 items-center">
+                                    {{-- <div class="flex-grow border-t border-gray-400"></div> --}}
+                                    <span class="flex-shrink mx-4 text-gray-500 font-bold">Dashboard</span>
+                                    <div class="flex-grow border-t border-gray-500"></div>
+                                </div>
+                                <div
+                                    class="hover:bg-slate-200  px-4 py-2 cursor-pointer inline-flex gap-2 items-center w-full rounded-md my-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="icon icon-tabler icon-tabler-dashboard" width="32" height="32"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <circle cx="12" cy="13" r="2" />
+                                        <line x1="13.45" y1="11.55" x2="15.5" y2="9.5" />
+                                        <path d="M6.4 20a9 9 0 1 1 11.2 0z" />
+                                    </svg>
+                                    Home
+                                </div>
+                                <div
+                                    class="hover:bg-slate-200   px-4 py-2 cursor-pointer inline-flex gap-2 items-center w-full rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="icon icon-tabler icon-tabler-info-square" width="32" height="32"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <line x1="12" y1="8" x2="12.01" y2="8" />
+                                        <rect x="4" y="4" width="16" height="16" rx="2" />
+                                        <polyline points="11 12 12 12 12 16 13 16" />
+                                    </svg>
+                                    About
+                                </div>
+                                <div x-data="{ open: false }" :class="{'bg-slate-200' : open}" class="rounded-md my-1">
+                                    <div class="hover:bg-slate-200  px-4 py-2 cursor-pointer inline-flex gap-2 items-center w-full rounded-md justify-between"
+                                        x-on:click="open = ! open">
+                                        <div class="items-center inline-flex gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-gift" width="32" height="32"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <rect x="3" y="8" width="18" height="4" rx="1" />
+                                                <line x1="12" y1="8" x2="12" y2="21" />
+                                                <path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7" />
+                                                <path
+                                                    d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5" />
+                                            </svg>
+                                            Info
+                                        </div>
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" x-show.important="!open"
+                                                class="icon icon-tabler icon-tabler-chevron-down" width="32" height="32"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <polyline points="6 9 12 15 18 9" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" x-show.important="open"
+                                                class="icon icon-tabler icon-tabler-chevron-up" width="32" height="32"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <polyline points="6 15 12 9 18 15" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div x-show.important="open" class=" rounded-md flex flex-col ">
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div x-data="{ open: false }" :class="{'bg-slate-200' : open}" class="rounded-md my-1">
+                                    <div class="hover:bg-slate-200  px-4 py-2 cursor-pointer inline-flex gap-2 items-center w-full rounded-md justify-between"
+                                        x-on:click="open = ! open">
+                                        <div class="items-center inline-flex gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-bolt" width="32" height="32"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <polyline points="13 3 13 10 19 10 11 21 11 14 5 14 13 3" />
+                                            </svg>
+                                            Reward
+                                        </div>
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" x-show.important="!open"
+                                                class="icon icon-tabler icon-tabler-chevron-down" width="32" height="32"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <polyline points="6 9 12 15 18 9" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" x-show.important="open"
+                                                class="icon icon-tabler icon-tabler-chevron-up" width="32" height="32"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <polyline points="6 15 12 9 18 15" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div x-show.important="open" class=" rounded-md flex flex-col ">
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full px-8">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-minus" width="32" height="32"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="5" y1="12" x2="19" y2="12" />
+                                                </svg>Sub Menu
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grow bg-slate-50 p-4 min-h-screen">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum consectetur quaerat quia temporibus
+                    sunt voluptatibus, culpa est veniam alias odio reiciendis iusto incidunt libero, quasi labore
+                    perspiciatis ipsam quos ratione? Molestias, ab blanditiis at nulla mollitia optio necessitatibus
+                    facilis, delectus ut similique rerum facere consequatur voluptatum reiciendis! Debitis beatae
+                    obcaecati, maiores hic exercitationem et, eaque molestias nihil, in repellendus quidem. Dolorem
+                    cupiditate porro, dolore doloremque est nisi inventore magni blanditiis quidem facere, autem
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur tenetur ducimus sit voluptate
+                    illum animi deserunt quia deleniti eligendi dolorum maiores sed, delectus mollitia fugiat facere cum
+                </div>
+
+            </div>
+            {{-- end konten --}}
+
+
+
+        </div>
+        {{-- footer --}}
+        <div class="flex justify-center w-full h-10 bg-slate-200">
+            <div class="flex items-center justify-center w-1/2 p-4 ">
+                <p class="inline-flex prose-sm prose text-gray-500">Rede Studio @2022</p>
+            </div>
+        </div>
+        {{-- end footer --}}
+
+
+    </div>
+</body>
+
+</html>
