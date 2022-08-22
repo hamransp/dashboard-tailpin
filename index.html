@@ -20,6 +20,7 @@
         <div class="min-h-screen bg-slate-300 flex flex-col" x-data={menu:false}>
             {{-- header --}}
             <div class="flex justify-between items-center h-14 bg-slate-200 p-4">
+                {{-- logo brand --}}
                 <div class="inline-flex justify-center items-center ">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-tabler" width="40"
                         height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
@@ -30,7 +31,9 @@
                         <rect x="4" y="4" width="16" height="16" rx="4" />
                     </svg>
                 </div>
+                {{-- end logo brand --}}
 
+                {{-- Account Setting --}}
                 <div class="cursor-pointer">
                     <div class="inline-flex item-center gap-4">
                         <div class="lg:hidden" x-on:click="menu = ! menu">
@@ -43,36 +46,107 @@
                                 <line x1="4" y1="18" x2="20" y2="18" />
                             </svg>
                         </div>
-                        <div class="inline-flex item-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings"
-                                width="38" height="38" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path
-                                    d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
-                                <circle cx="12" cy="12" r="3" />
-                            </svg>
+
+                        <div class="relative " x-data="{ isOpen: false}">
+                            <div @click="isOpen = !isOpen" @keydown.escape="isOpen = false" class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings"
+                                    width="38" height="38" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                            </div>
+                            <div x-show="isOpen" @click.away="isOpen = false"
+                                class="absolute font-normal bg-slate-100 shadow overflow-hidden rounded w-48 border right-0 z-20 gap-2 px-2 py-2 divide-y">
+                                <div>
+                                    <div class="my-1">
+                                        <div
+                                            class="hover:bg-slate-200 px-4 py-3 cursor-pointer inline-flex gap-2 items-center w-full rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-fingerprint" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e"
+                                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path d="M18.9 7a8 8 0 0 1 1.1 5v1a6 6 0 0 0 .8 3" />
+                                                    <path d="M8 11a4 4 0 0 1 8 0v1a10 10 0 0 0 2 6" />
+                                                    <path d="M12 11v2a14 14 0 0 0 2.5 8" />
+                                                    <path d="M8 15a18 18 0 0 0 1.8 6" />
+                                                    <path d="M4.9 19a22 22 0 0 1 -.9 -7v-1a8 8 0 0 1 12 -6.95" />
+                                                </svg>
+                                                <span class="ml-2 text-gray-600">Account</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="my-1 ">
+                                        <div
+                                            class="hover:bg-slate-200 px-4 py-3 cursor-pointer inline-flex gap-2 items-center w-full rounded-md">
+                                            <a href="#" class="inline-flex items-center w-full">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-adjustments" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e"
+                                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <circle cx="6" cy="10" r="2" />
+                                                    <line x1="6" y1="4" x2="6" y2="8" />
+                                                    <line x1="6" y1="12" x2="6" y2="20" />
+                                                    <circle cx="12" cy="16" r="2" />
+                                                    <line x1="12" y1="4" x2="12" y2="14" />
+                                                    <line x1="12" y1="18" x2="12" y2="20" />
+                                                    <circle cx="18" cy="7" r="2" />
+                                                    <line x1="18" y1="4" x2="18" y2="5" />
+                                                    <line x1="18" y1="9" x2="18" y2="20" />
+                                                </svg>
+                                                <span class="ml-2 text-gray-600">Setting</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="my-1 pt-1 ">
+                                    <div
+                                        class="hover:bg-slate-200 px-4 py-3 cursor-pointer inline-flex gap-2 items-center w-full rounded-md">
+                                        <a href="#" class="inline-flex items-center w-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="icon icon-tabler icon-tabler-logout" width="24" height="24"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path
+                                                    d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+                                                <path d="M7 12h14l-3 -3m0 6l3 -3" />
+                                            </svg>
+                                            <span class="ml-2 text-rose-600">Logout</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+
                     </div>
                 </div>
+                {{-- end Account Setting --}}
             </div>
             {{-- end header --}}
 
-            {{-- konten --}}
+
 
             <div class="flex lg:flex-row" :class="menu?'flex-col' : ''">
+                {{-- sidebar --}}
                 <div class=" flex-none lg:static text-gray-600 lg:w-1/5 w-full lg:visible max-h-screen overflow-y-auto
                 " :class=" menu ? 'visible backdrop-blur ' : 'invisible absolute'">
                     <div class=" lg:w-full w-3/4 bg-slate-600">
                         <div class="gap-2 min-h-screen  bg-slate-100">
                             <div class="px-2 py-2 gap-2">
                                 <div class="relative flex py-2 items-center">
-                                    {{-- <div class="flex-grow border-t border-gray-400"></div> --}}
-                                    <span class="flex-shrink mx-4 text-gray-500 font-bold">Dashboard</span>
+                                    <span class="flex-shrink mx-4 text-gray-500 font-bold">Menu</span>
                                     <div class="flex-grow border-t border-gray-500"></div>
                                 </div>
+
                                 <div
-                                    class="hover:bg-slate-200  px-4 py-2 cursor-pointer inline-flex gap-2 items-center w-full rounded-md my-1">
+                                    class="hover:bg-slate-200 px-4 py-2 cursor-pointer inline-flex gap-2 items-center w-full rounded-md my-1">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         class="icon icon-tabler icon-tabler-dashboard" width="32" height="32"
                                         viewBox="0 0 24 24" stroke-width="1.5" stroke="#9e9e9e" fill="none"
@@ -131,8 +205,8 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div x-show.important="open" class=" rounded-md flex flex-col ">
-                                        <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
+                                    <div x-show.important="open" class=" rounded-md flex flex-col p-2" x-transition>
+                                        <div class="py-2  inline-flex items-center hover:bg-slate-300 hover:rounded-md">
                                             <a href="#" class="inline-flex items-center w-full px-8">
                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                     class="icon icon-tabler icon-tabler-minus" width="32" height="32"
@@ -186,7 +260,7 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <div x-show.important="open" class=" rounded-md flex flex-col ">
+                                    <div x-show.important="open" class="rounded-md flex flex-col p-2" x-transition>
                                         <div class="py-2 inline-flex items-center hover:bg-slate-300 hover:rounded-md">
                                             <a href="#" class="inline-flex items-center w-full px-8">
                                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -347,6 +421,9 @@
                         </div>
                     </div>
                 </div>
+                {{-- end sidebar --}}
+
+                {{-- konten --}}
                 <div class="grow bg-slate-50 p-4 min-h-screen">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum consectetur quaerat quia temporibus
                     sunt voluptatibus, culpa est veniam alias odio reiciendis iusto incidunt libero, quasi labore
@@ -357,9 +434,10 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur tenetur ducimus sit voluptate
                     illum animi deserunt quia deleniti eligendi dolorum maiores sed, delectus mollitia fugiat facere cum
                 </div>
+                {{-- end konten --}}
 
             </div>
-            {{-- end konten --}}
+
 
 
 
@@ -374,6 +452,7 @@
 
 
     </div>
+    @stack('scripts')
 </body>
 
 </html>
